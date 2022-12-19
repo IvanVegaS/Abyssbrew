@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Magick } from './magick/magick';
+import { Condition } from './magick-conditions/magick-conditions'
 
 @Injectable({
   providedIn: 'root',
@@ -80,11 +81,28 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 70,  type: 'Gravedad', name: 'Demiza', uses: 2,  level: 4, range: '10 m2', damage: '(6d12 + 100) * 4', requires: 'Magick 7 - 9', additional: '', description: '' },
       {id: 71,  type: 'Gravedad', name: 'Demija', uses: 2,  level: 5, range: '15 m2', damage: '(3d12 + 40) * 12 + 1200',  requires: 'Magick 10 - 12', additional: '', description: '' }
     ];
-    return {magicks};
+    
+    const conditions = [
+      { id: 1,  name: 'Quemadura',  description: 'Reduce el ATQ a la mitad y daña cada turno 5% del HP total'},
+      { id: 2,  name: 'Confusion',  description: 'Ataca al azar a un miembro de su equipo'},
+      { id: 3,  name: 'Aturdimiento', description: 'Pierde el siguiente turno'},
+      { id: 4,  name: 'Paralisis',  description: 'Reduce VEL a la mita,con probabilidad de no tomar acciones en su turno'},
+      { id: 5,  name: 'Congelamiento',  description: 'Reduce VEL a 0 y daña cada turno 5% del HP total'},
+      { id: 6,  name: 'Envenenamiento', description: 'Daña cada turno 10% del HP total'},
+      { id: 7,  name: 'Lentitud', description: 'Reduce a la mitad el numero de turnos que puede tomar'},
+      { id: 8,  name: 'Ceguera',  description: 'Requiere 18+ para poder pegar,cancela criticos'},
+      { id: 9,  name: 'Silencio', description: 'Imposibilita el uso de reliquias'},
+      { id: 10, name: 'Sangrado', description: 'Reduce el ATQ en un 25% y daña cada turno 5% del HP total'},
+      { id: 11, name: 'Somnolencia',  description: 'Incrementa el daño recibido en 1.5x. Los ataques fisicos terminan el efecto'},
+      { id: 12, name: 'Petrificacion',  description: 'Imposibilita tomar acciones,si no se cura antes de [Nivel] turnos,provoca la muerte al romperse (golpe critico)'},
+      { id: 13, name: 'Debilidad',  description: 'Reduce resistencias elementales'},
+      { id: 14, name: 'Penetrante', description: 'Ignora DEF en el calculo de daño'}
+    ];
+    return {magicks, conditions};
   }
 
 
-  genId<T extends Magick>(table: T[]): number {
+  genId<T extends Magick | Condition>(table: T[]): number {
     return table.length > 0 ? Math.max(...table.map(t => t.id)) + 1 : 1;
   }
 }

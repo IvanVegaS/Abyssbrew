@@ -1,1 +1,23 @@
-<p>magick-conditions works!</p>
+<div *ngIf="conditions">
+	<div>
+		<div class="table-wrapper pt-3 overflow-hidden row justify-content-center">
+			<div class="table-responsive col-12 col-md-8 col-lg-6">
+				<br>
+				<table class="table">
+					<thead>
+						<tr class="text-center">
+							<th scope="col">Nombre</th>
+							<th scope="col">Descripcion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let condition of conditions">
+							<th scope="row">{{condition.name}}</th>
+							<td>{{condition.description}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
