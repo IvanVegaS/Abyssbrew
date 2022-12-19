@@ -15,7 +15,6 @@ import { AppComponent } from './app.component';
 import { MagickComponent } from './magick/magick.component';
 import { UniqueTypePipe } from './magick/magick.pipe.unique-type';
 import { MagickBasicComponent } from './magick-basic/magick-basic.component';
-import { MagickAdvancedComponent } from './magick-advanced/magick-advanced.component';
 import { MagickCombinationsComponent } from './magick-combinations/magick-combinations.component';
 import { MagickConditionsComponent } from './magick-conditions/magick-conditions.component';
 
@@ -24,7 +23,6 @@ import { MagickConditionsComponent } from './magick-conditions/magick-conditions
     AppComponent,
     MagickComponent,
     MagickBasicComponent,
-    MagickAdvancedComponent,
     MagickCombinationsComponent,
     MagickConditionsComponent,
     UniqueTypePipe
