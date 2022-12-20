@@ -27,14 +27,6 @@ export class ConditionService {
       );
   }
 
-  getCondition(id: number): Observable<Condition> {
-    const url = `${this.conditionsUrl}/${id}`;
-    return this.http.get<Condition>(url).pipe(
-      tap((_) => console.log(`fetched condition id=${id}`)),
-      catchError(this.handleError<Condition>(`getCondition id=${id}`))
-    );
-  }
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.

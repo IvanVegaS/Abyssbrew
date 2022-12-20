@@ -1,0 +1,11 @@
+<div class="row  justify-content-evenly">
+	<div class="d-flex my-2 col-6" *ngFor="let rareMagick of rareMagicks | uniqueType">
+		<button id="{{rareMagick.type | lowercase}}" routerLink="/magick/{{rareMagick.type | lowercase}}" class="col-12 btn btn-dark" type="button"><span>{{rareMagick.type | uppercase}}</span></button>
+	</div>
+</div>
+<hr>
+<div class="row  justify-content-evenly">
+	<div class="d-flex my-2 col-6" *ngFor="let stateMagick of stateMagicks | uniqueType">
+		<button id="{{stateMagick.type | lowercase}}" routerLink="/magick/{{stateMagick.type | lowercase}}" class="col-12 btn btn-dark" type="button"><span>{{stateMagick.type | uppercase}}</span></button>
+	</div>
+</div>

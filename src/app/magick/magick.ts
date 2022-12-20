@@ -1,5 +1,4 @@
 export interface Magick {
-	id: number;
 	type: string;
 	name: string;
 	uses: number;

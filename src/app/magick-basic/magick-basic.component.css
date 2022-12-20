@@ -1,22 +1,14 @@
 :host {
     display: block;
     left: 0;
-    width: 100%;
+    width: 80%;
     height: 100%;
+}
+
+span {
+    font-size: 4.3vmin;
 }
 
 .d-flex {
     height: 78px;
-}
-
-#luz {
-    box-shadow: 0 0 10px 5px #FFDA80;
-}
-
-#oscuridad {
-    box-shadow: 0 0 10px 5px #0b474a;
-}
-
-#gravedad {
-    box-shadow: 0 0 10px 5px #800080;
 }

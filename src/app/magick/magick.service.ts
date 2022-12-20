@@ -27,14 +27,6 @@ export class MagickService {
       );
   }
 
-  getMagick(id: number): Observable<Magick> {
-    const url = `${this.magicksUrl}/${id}`;
-    return this.http.get<Magick>(url).pipe(
-      tap((_) => console.log(`fetched magick id=${id}`)),
-      catchError(this.handleError<Magick>(`getMagick id=${id}`))
-    );
-  }
-
   getMagicksByType(type: string): Observable<Magick[]> {
     if (!type.trim()) {
       return of([]);
@@ -47,14 +39,14 @@ export class MagickService {
     );
   }
 
-  searchMagicks(term: string): Observable<Magick[]> {
-    if (!term.trim()) {
+  searchMagicks(name: string): Observable<Magick[]> {
+    if (!name.trim()) {
       return of([]);
     }
-    return this.http.get<Magick[]>(`${this.magicksUrl}/?name=${term}`).pipe(
+    return this.http.get<Magick[]>(`${this.magicksUrl}/?name=${name}`).pipe(
       tap(x => x.length ?
-         console.log(`found magicks matching "${term}"`) :
-         console.log(`no magicks matching "${term}"`)),
+         console.log(`found magicks matching "${name}"`) :
+         console.log(`no magicks matching "${name}"`)),
       catchError(this.handleError<Magick[]>('searchMagicks', []))
     );
   }
